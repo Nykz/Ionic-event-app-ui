@@ -1,0 +1,132 @@
+ion-header {
+  margin: 8px;
+  background: transparent;
+  ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent;
+    ion-buttons {
+      background: rgba(209, 204, 204, 0.3);
+      border-radius: 50%;
+    }
+  }
+}
+div.bg-container {
+  margin: 8px;
+  div.bg {
+    width: 100%;
+    height: 22rem;
+    border-radius: 25px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--ion-color-light);
+  }
+}
+
+ion-item {
+  --inner-padding-end: 8px;
+  margin: 8px;
+  --border-radius: 25px;
+  ion-label.eventInfo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    ion-row {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      font-weight: normal;
+      color: gray;
+      ion-col {
+        padding: 0;
+        .loc {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  div[slot="end"] {
+    margin: 8px 0;
+    background: var(--ion-color-light);
+    border-radius: 25px;
+    height: 6rem;
+    width: 6rem;
+    align-content: center;
+    ion-label {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    p {
+      margin: 5px 0 0 0;
+      font-size: 0.8rem;
+      color: gray;
+    }
+  }
+}
+
+ion-card {
+  --box-shadow: none;
+  border-radius: 25px;
+  ion-list {
+    ion-list-header {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    ion-row {
+      margin: 8px;
+      ion-col {
+        display: flex;
+      }
+      ion-avatar {
+        height: 3rem;
+        width: 3rem;
+        background: #fff;
+        img {
+          padding: 2px;
+        }
+      }
+      .participant {
+        margin-left: -10px;
+        ion-text {
+          font-size: 0.8rem;
+          font-weight: bold;
+        }
+      }
+      .participant-text {
+        ion-label,
+        p {
+          font-size: 0.8rem;
+        }
+      }
+      .bg-avatar {
+        background: var(--ion-color-light);
+        height: 2.5rem;
+        width: 2.5rem;
+        align-content: center;
+      }
+    }
+    .map {
+        margin: 0 8px;
+        img {
+            border-radius: 25px;
+        }
+    }
+  }
+}
+
+ion-footer {
+    background: var(--ion-color-light);
+    ion-row {
+        background: #fff;
+        margin: 0 15px;
+        padding-right: 10px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+    ion-col {
+        align-content: space-around;
+        ion-button {
+            ion-text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

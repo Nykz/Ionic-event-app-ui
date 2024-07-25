@@ -1,0 +1,37 @@
+ion-content {
+    swiper-container {
+        --swiper-pagination-color: var(--ion-color-primary);
+        height: 100%;
+        div {
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+swiper-container::part(bullet-active) {
+    margin-bottom: 1vh;
+    width: 40px;
+    border-radius: 4px;
+}
+swiper-container::part(bullet) {
+    margin-bottom: 1vh;
+    width: 15px;
+    border-radius: 4px;
+    background: #fff;
+    opacity: 1;
+}
+
+ion-footer {
+    ion-toolbar {
+        --background: #000;
+        padding: 10px;
+        ion-button {
+            ion-text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

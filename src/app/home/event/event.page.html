@@ -1,0 +1,97 @@
+<ion-content [fullscreen]="true" color="light">
+  <ion-header class="ion-no-border" slot="fixed">
+    <ion-toolbar>
+      <ion-buttons slot="start" mode="md">
+        <ion-back-button color="light" defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="bg-container">
+    <div [style.backgroundImage]="'url(' + event.image + ')'" class="bg"></div>
+  </div>
+
+  <ion-item lines="none">
+    <ion-label class="eventInfo"> 
+      {{event.name}} 
+      <ion-row>
+        <ion-col>
+          <ion-icon name="calendar-outline"></ion-icon>
+          {{event.date | date: 'MMM d, y'}}
+          <ion-icon name="location-outline" class="loc"></ion-icon>
+          {{event.location}}
+        </ion-col>
+      </ion-row>
+    </ion-label>
+
+    <div slot="end" align="center">
+      <ion-label color="primary"> $45 </ion-label>
+      <p>256 seats available</p>
+    </div>
+  </ion-item>
+
+  <ion-card>
+
+    <ion-list>
+      <ion-list-header> About Event </ion-list-header>
+
+      <p class="ion-margin-horizontal">{{event.description}}</p>
+
+      <ion-row>
+        <ion-col class="ion-align-items-center">
+          <ion-avatar>
+            <img src="assets/imgs/avatar1.png" />
+          </ion-avatar>
+          <ion-avatar class="participant">
+            <img src="assets/imgs/avatar2.png" />
+          </ion-avatar>
+          <ion-avatar class="participant">
+            <img src="assets/imgs/avatar3.jpg" />
+          </ion-avatar>
+          <ion-avatar class="ion-text-center participant bg-avatar">
+            <ion-text color="dark">+2k</ion-text>
+          </ion-avatar>
+        </ion-col>
+
+        <ion-col class="ion-align-items-center participant-text">
+          <ion-label>
+            <ion-text color="dark"><strong>Participant</strong></ion-text>
+            <p>All over the world</p>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-list-header class="ion-align-items-center">
+        Location
+      </ion-list-header>
+
+      <div class="map">
+        <img src="assets/imgs/maps.png">
+      </div>
+
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-row>
+    <ion-col size="10">
+      <ion-button
+        expand="block"
+        shape="round"
+        color="primary"
+        size="large"
+        [strong]="true"
+      >
+        <ion-text>Buy Ticket</ion-text>
+      </ion-button>
+    </ion-col>
+    <ion-col size="2">
+      <ion-fab-button color="light">
+        <ion-icon color="primary" name="heart-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-toolbar>
+  </ion-toolbar> -->
+</ion-footer>

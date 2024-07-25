@@ -1,0 +1,135 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="wrapper">
+    <ion-item lines="none">
+      <ion-label color="light">
+        <div>
+          <ion-icon name="locate-outline"></ion-icon>
+          <ion-text>Events near me</ion-text>
+        </div>
+        <p>Delhi, India</p>
+      </ion-label>
+
+      <ion-fab-button size="small">
+        <ion-icon name="notifications-outline" color="medium"></ion-icon>
+        <ion-badge>&#9679;</ion-badge>
+      </ion-fab-button>
+    </ion-item>
+
+    <ion-toolbar class="srchBar" mode="ios">
+      <ion-row>
+        <ion-col size="10">
+          <ion-searchbar placeholder="Search events"></ion-searchbar>
+        </ion-col>
+        <ion-col size="2">
+          <ion-fab-button size="small" color="light">
+            <ion-icon name="options-outline" color="medium"></ion-icon>
+          </ion-fab-button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-list class="ion-margin-top">
+    <ion-list-header mode="ios"> Upcoming Events </ion-list-header>
+
+    <swiper-container
+      #event_upcoming
+      [modules]="swiperModules"
+      [slidesPerView]="1.35"
+      [keyboard]="true"
+      [centerSlides]="true"
+    >
+      @for(event of upcomingEvents; track $index) {
+      <swiper-slide>
+        <ion-card
+          class="event1"
+          [routerLink]="['/', 'home', 'events', event?.id]"
+        >
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <ion-img [src]="event.image"></ion-img>
+            </ion-thumbnail>
+
+            <ion-label>
+              <ion-text class="date">
+                {{ event?.date | date: 'MMM d, y' }}
+              </ion-text>
+              <p class="title">
+                <ion-text color="dark"> {{ event?.name }} </ion-text>
+              </p>
+              <p class="location">
+                <ion-icon name="location-outline"></ion-icon>
+                {{ event?.location }}
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      </swiper-slide>
+      }
+    </swiper-container>
+  </ion-list>
+
+  <ion-list class="ion-margin-top">
+    <ion-item-divider mode="ios" color="light">
+      Top Picks
+      <img src="assets/imgs/fire.png" />
+      <ion-button slot="end" fill="clear" color="medium"> View All </ion-button>
+    </ion-item-divider>
+
+    <swiper-container
+      #category
+      [modules]="swiperModules"
+      [slidesPerView]="2.6"
+      [keyboard]="true"
+      [centerSlides]="true"
+    >
+      <swiper-slide>
+        <ion-card class="category">
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <ion-img [src]="'assets/imgs/all.png'"></ion-img>
+            </ion-avatar>
+
+            <ion-label> All </ion-label>
+          </ion-item>
+        </ion-card>
+      </swiper-slide>
+      @for(ctgory of categories; track $index) {
+      <swiper-slide>
+        <ion-card class="category">
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <ion-img [src]="ctgory.image"></ion-img>
+            </ion-avatar>
+
+            <ion-label> {{ ctgory.name }} </ion-label>
+          </ion-item>
+        </ion-card>
+      </swiper-slide>
+      }
+    </swiper-container>
+  </ion-list>
+
+  @for(event of currentEvents; track $index) {
+  <ion-card
+    [routerLink]="['/', 'home', 'events', event?.id]"
+    class="event2"
+    [style.backgroundImage]="'url('+ event.image +')'"
+  >
+  <ion-item lines="none">
+    <ion-label>
+      {{ event?.date | date: 'MMM d, y' }}
+      <p>
+        {{ event?.name }}
+      </p>
+    </ion-label>
+
+    <ion-fab-button slot="end" size="small">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-item>
+  </ion-card>
+  }
+</ion-content>
